@@ -1,0 +1,135 @@
+13. Generalno upotreba struktura i funkcija
+Struktura (struct)
+typedef struct
+{
+    int id;
+    char traineeName[MAX_NAME_LENGTH];
+    int duration;
+    float caloriesBurned;
+
+} Training;
+
+Koristi se za spremanje podataka o treningu.
+
+Funkcije
+
+Primjeri funkcija:
+
+void createTraining(Training** trainings, int* count);
+void updateTraining(Training* trainings, int count);
+void deleteTraining(Training** trainings, int* count);
+void saveToFile(const Training* trainings, int count);
+
+14. Zaštita parametara kod svih funkcija
+
+Primjer provjere pokazivača:
+
+if (trainings == NULL || count == NULL)
+{
+    return;
+}
+
+Primjer zaštite kod brisanja:
+
+if (trainings == NULL || *trainings == NULL || *count == 0)
+{
+    printf("\nNema treninga!\n");
+    return;
+}
+
+Primjer zaštite korisničkog unosa:
+
+if (scanf("%d", &option) != 1)
+{
+    printf("\nPogresan unos!\n");
+    clearInputBuffer();
+    continue;
+}
+15. Koristiti statički zauzeta polja gdje su potrebna, nikako ne koristiti VLA polja
+
+Korišteno statičko polje:
+
+#define MAX_NAME_LENGTH 50
+char traineeName[MAX_NAME_LENGTH];
+
+NEMA korištenja VLA polja poput:
+
+char name[n];
+
+što je traženo u zadatku.
+
+16. Koristiti dinamičko zauzimanje memorije za bilo koji tip podatka
+
+Dinamička memorija koristi se za niz treninga:
+
+Training* trainings = NULL;
+
+Dinamičko povećavanje memorije:
+
+temp = (Training*)realloc(
+    *trainings,
+    (*count + 1) * sizeof(Training)
+);
+
+Dinamičko učitavanje iz datoteke:
+
+*trainings = (Training*)calloc(*count, sizeof(Training));
+17. Koristiti malloc(), calloc(), realloc(), free()
+calloc()
+*trainings = (Training*)calloc(*count, sizeof(Training));
+
+Koristi se za alokaciju memorije i postavljanje na nulu.
+
+realloc()
+temp = (Training*)realloc(
+    *trainings,
+    (*count + 1) * sizeof(Training)
+);
+
+Koristi se za proširenje memorije pri dodavanju treninga.
+
+free()
+free(trainings);
+
+Oslobađanje memorije na kraju programa.
+
+free(*trainings);
+
+Oslobađanje memorije kada se izbrišu svi treninzi.
+
+18. Sigurno brisanje memorije i zaštita od double free()
+
+Provjera pokazivača prije free():
+
+if (trainings != NULL)
+{
+    free(trainings);
+    trainings = NULL;
+}
+
+Anuliranje pokazivača nakon free():
+
+trainings = NULL;
+
+Sprječava:
+
+double free
+dangling pointer
+rušenje programa
+
+Sigurno brisanje kod delete funkcije:
+
+if (*count == 0)
+{
+    free(*trainings);
+    *trainings = NULL;
+}
+
+Provjera pokazivača prije rada s memorijom:
+
+if (trainings == NULL || *trainings == NULL)
+{
+    return;
+}
+
+To sprječava pristup nevažećoj memoriji.
