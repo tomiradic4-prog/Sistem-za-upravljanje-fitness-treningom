@@ -1,0 +1,13 @@
+﻿'Project80.exe' (Win32): Loaded 'C:\Users\student\source\repos\Project80\Debug\Project80.exe'. Symbols loaded.
+'Project80.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. Symbols loaded.
+'Project80.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. Symbols loaded.
+'Project80.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. Symbols loaded.
+'Project80.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. Symbols loaded.
+'Project80.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. Symbols loaded.
+The thread 0x5e5c has exited with code 0 (0x0).
+'Project80.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel.appcore.dll'. Symbols loaded.
+'Project80.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcrt.dll'. Symbols loaded.
+'Project80.exe' (Win32): Loaded 'C:\Windows\SysWOW64\rpcrt4.dll'. Symbols loaded.
+The thread 0x8574 has exited with code 0 (0x0).
+The thread 0x5504 has exited with code 0 (0x0).
+The program '[27332] Project80.exe' has exited with code 0 (0x0).
